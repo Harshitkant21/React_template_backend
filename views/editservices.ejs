@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Service</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 20px;
+        background-color: #1a1a1a;
+        color: #ddd;
+      }
+
+      h1 {
+        color: #fba419;
+        text-align: center;
+      }
+
+      form {
+        max-width: 400px;
+        margin: 20px auto;
+        background-color: #333;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #ddd;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+        background-color: #1a1a1a;
+        color: #ddd;
+        border: 1px solid #333;
+        border-radius: 5px;
+      }
+
+      button {
+        background-color: #fba419;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        width: 100%;
+      }
+
+      button:hover {
+        background-color: #e88c10;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Edit Service</h1>
+    <form action="/services/update/<%= service.id %>" method="post">
+      <label for="service_name">Service Name:</label>
+      <input
+        type="text"
+        name="service_name"
+        value="<%= service.service_name %>"
+        required
+      />
+
+      <label for="description">Description:</label>
+      <input
+        type="text"
+        name="description"
+        value="<%= service.description %>"
+        required
+      />
+
+      <label for="image">Image URL:</label>
+      <input type="text" name="image" value="<%= service.image %>" required />
+
+      <button type="submit">Update Service</button>
+    </form>
+  </body>
+</html>

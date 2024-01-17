@@ -3,32 +3,109 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit User</title>
-  </head>
-  <body>
-    <h1>Edit User</h1>
-    <form action="/events/update/<%= event.id %>" method="post">
-      <label for="title">Title:</label>
-      <input type="text" name="title" value="<%= event.title %>" required />
+    <title>Edit Employee</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #1a1a1a;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+      }
 
-      <label for="description">Description:</label>
+      h1 {
+        text-align: center;
+        color: #fba419;
+      }
+
+      form {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #333;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #fff;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+        background-color: #1a1a1a;
+        color: #fff;
+        border: 1px solid #444;
+        border-radius: 4px;
+      }
+
+      button {
+        background-color: #fba419;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #e88c10;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Edit Employee</h1>
+    <form action="/businessteam/update/<%= employee.id %>" method="post">
+      <label for="employee_name">Employee Name:</label>
       <input
         type="text"
-        name="description"
-        value="<%= event.description %>"
+        name="employee_name"
+        value="<%= employee.employee_name %>"
         required
       />
 
-      <label for="address">Address:</label>
-      <input type="text" name="address" value="<%= event.address %>" required />
+      <label for="designation">Designation:</label>
+      <input
+        type="text"
+        name="designation"
+        value="<%= employee.designation %>"
+        required
+      />
 
-      <label for="city">City:</label>
-      <input type="text" name="city" value="<%= event.city %>" required />
+      <label for="department">Department:</label>
+      <input
+        type="text"
+        name="department"
+        value="<%= employee.department %>"
+        required
+      />
 
-      <label for="date">Date:</label>
-      <input type="date" name="date" value="<%= event.date %>" required />
+      <label for="email">Email:</label>
+      <input type="text" name="email" value="<%= employee.email %>" required />
 
-      <button type="submit">Update Event</button>
+      <label for="contact_number">Contact Number:</label>
+      <input
+        type="text"
+        name="contact_number"
+        value="<%= employee.contact_number %>"
+        required
+      />
+
+      <label for="profile_picture">Profile Picture:</label>
+      <input
+        type="text"
+        name="profile_picture"
+        value="<%= employee.profile_picture %>"
+        required
+      />
+
+      <button type="submit">Update Employee</button>
     </form>
   </body>
 </html>

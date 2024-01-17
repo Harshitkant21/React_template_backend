@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node.js Admin Panel</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #3498db;
+        color: white;
+      }
+
+      a {
+        text-decoration: none;
+        margin-left: 10px;
+        padding: 5px;
+        color: #333;
+        background-color: #ddd;
+        border-radius: 5px;
+      }
+
+      a:hover {
+        background-color: #ccc;
+      }
+
+      form {
+        margin-top: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input {
+        padding: 5px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        padding: 8px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #2980b9;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>User List</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach(user => { %>
+        <tr>
+          <td><%= user.userid %></td>
+          <td><%= user.uname %></td>
+          <td><%= user.uemail %></td>
+          <td>
+            <a href="/users/edit/<%= user.userid %>">Edit</a>
+            <a href="/users/delete/<%= user.userid %>">Delete</a>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+
+    <h2>Add User</h2>
+    <form action="/users/add" method="post">
+      <label for="uname">Username:</label>
+      <input type="text" name="uname" required />
+      <label for="password">Password:</label>
+      <input type="password" name="password" required />
+      <label for="uemail">Email:</label>
+      <input type="text" name="uemail" required />
+      <button type="submit">Add User</button>
+    </form>
+  </body>
+</html>
